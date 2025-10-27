@@ -1,0 +1,14 @@
+﻿  Source.cpp
+C:\Users\VadyaS\source\repos\Dll1\Dll1\Transport.h(15,14): warning C4251: "Transport::name": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Transport"
+  (компиляция исходного файла "Source.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Users\VadyaS\source\repos\Dll1\Dll1\HelpsElem.h(6,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  (компиляция исходного файла "Source.cpp")
+  
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 314 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  SimulatorGonok3.vcxproj -> C:\Users\VadyaS\source\repos\SimulatorGonok3\x64\Release\SimulatorGonok3.exe
