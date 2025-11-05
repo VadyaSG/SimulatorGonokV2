@@ -18,26 +18,49 @@ void Ground::displayInfo() const
 	Transport::displayInfo();
 }
 
+
+
 double Ground::calculateTime(double km) const
 {
 	double TimeWishoutRes = km / getSpeed();
-	double TotalResTime{ 0.0 };
 	double DriveToRes = getDriveToRes();
-	if (DriveToRes <= 0)
-	{
-		return TimeWishoutRes;
-	}
-	double mileage{ 0.0 };
-	int relax{ 0 };
+
+	double relaxCount = TimeWishoutRes / DriveToRes;
+	double relaxTime{};
 	
-	while (mileage + DriveToRes < km)
+	
+	int relax{0};
+	double fractpart,intpart;     
+
+	fractpart = modf(relaxCount, &intpart); // отделить дробную часть от целой
+
+
+	if (fractpart == 0) //если дробная часть == 0, то отдых приходится на финиш
 	{
-		relax++;
-		TotalResTime=TimeWishoutRes / getDriveToRes()*getDurationToRes(relax);
-		TotalResTime += getDurationToRes(relax) / 60;
-		mileage += DriveToRes;
-		
+		while (relax < trunc(relaxCount)-1)
+		{
+			relax++;
+
+			relaxTime += getDurationToRes(relax);
+
+
+		}
+		return TimeWishoutRes + relaxTime;
 	}
-	return TimeWishoutRes + TotalResTime;
-}
+	else
+	{
+		while (relax < trunc(relaxCount))
+		{
+			relax++;
+
+			relaxTime += getDurationToRes(relax);
+
+
+		}
+		return TimeWishoutRes + relaxTime;
+	}
+
+
+	
+
 
